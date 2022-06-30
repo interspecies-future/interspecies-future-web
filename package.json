@@ -1,0 +1,26 @@
+{
+  "name": "interspecies-future",
+  "version": "1.0.0",
+  "description": "Website for Interspecies Future",
+  "main": "index.js",
+  "scripts": {
+    "web": "npm run dev --workspace=web",
+    "studio":  "npm run start --workspace=studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/violetoffice/interspecies-future.git"
+  },
+  "author": "Max Ackerman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/violetoffice/interspecies-future/issues"
+  },
+  "homepage": "https://github.com/violetoffice/interspecies-future#readme",
+  "workspaces": [
+    "studio",
+    "web"
+  ],
+  "devDependencies": {
+  }
+}

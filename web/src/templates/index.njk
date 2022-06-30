@@ -1,0 +1,7 @@
+---
+layout: base
+---
+
+{%- if homepage.intro %}
+  {{ homepage.intro | richText | safe }}
+{% endif -%}
