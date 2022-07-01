@@ -9,7 +9,7 @@ module.exports = async (
   // aspectRatio,
 ) => {
    let metadata = await Image(src, {
-    widths: [300, 600],
+    widths: [300, 600, 1200, 1600, 1800, 2000],
     formats: ["webp", null],
     urlPath: '/images/',
     outputDir: 'dist/images/'
