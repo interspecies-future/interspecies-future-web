@@ -5,6 +5,11 @@ export default {
   __experimental_actions: [/*'create', 'delete',*/ 'update', 'publish'],
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
       name: 'url',
       type: 'url',
       title: 'URL'
