@@ -1,7 +1,53 @@
 ---
 layout: base
 ---
+<div class="grid-wrapper">
 
-{%- if homepage.intro %}
-  {{ homepage.intro | richText | safe }}
-{% endif -%}
+  <div class="homepage-poster">
+
+    <div class="homepage-poster__wordmark">
+      {% include "isf_wordmark.svg" %}
+    </div>
+
+    <div class="homepage-poster__lenticular clipped-element">
+      <div class="homepage-poster__img">
+        {% image "https://upload.wikimedia.org/wikipedia/commons/3/35/ParthenosSylviaButterfly.jpg", "Parthenos Sylvia Butterfly" %}
+      </div>
+      <div class="homepage-poster__img">
+        {% image "https://upload.wikimedia.org/wikipedia/commons/d/de/Bullfinch_male.jpg", "Bullfinch" %}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="homepage-text">
+    <div class="text-area sans-lg justify">
+    {%- if homepage.intro %}
+      {{ homepage.intro | richText | safe }}
+    {% endif -%}
+
+    <div class="footer-logo">
+    {% image "./src/images/mfn.png", "Museum Für Naturkunde Logo" %}
+    </div>
+    <div class="footer-logo">
+    {% image "./src/images/las.png", "Light Art Space Logo" %}
+    </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="hide-svg">
+<svg class="lenticular-mask" width="0" height="0">
+  <defs>
+    <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+      {% for i in range(0, 125) %}
+        <!-- 1/250 = 0.004 -->
+        <!-- 0.004 /2 = 0.001 -->
+        <rect class="bar" width="1" height="0.007" y="{{ i * 0.008}}" />
+      {% endfor %}
+    </clipPath>
+  </defs>
+</svg>
+</div>

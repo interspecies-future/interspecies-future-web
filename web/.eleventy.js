@@ -2,7 +2,7 @@ const blocksToHtml = require('@sanity/block-content-to-html')
 const sanityClient = require('./src/utils/sanityClient.js')
 const imageUrl = require('@sanity/image-url')
 const imageBuilder = imageUrl(sanityClient);
-
+const imgShortCode = require("./src/utils/imgshortcode.js");
 
 module.exports = function(eleventyConfig) {
 
@@ -19,7 +19,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({'src/images': 'images'});
   eleventyConfig.addPassthroughCopy({'src/favicon': '/'});
-  // eleventyConfig.addPassthroughCopy({'src/fonts': 'assets/fonts'});
+  eleventyConfig.addPassthroughCopy({'src/fonts': 'assets/fonts'});
 
 
   eleventyConfig.addFilter( 'debug', (value) => {
@@ -52,6 +52,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("trim", (array, start, end) => {
     return array.slice(start, end);
   });
+
+  // https://github.com/11ty/eleventy-img
+  eleventyConfig.addNunjucksAsyncShortcode("image", imgShortCode);
 
   eleventyConfig.addShortcode('imageUrl', (source, width = 1200, saturation) => {
     return imageBuilder
