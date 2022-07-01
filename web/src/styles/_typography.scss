@@ -93,6 +93,7 @@ a{
 
 // output from rich text CMS
 .text-area{
+  color: var(--text-color);
   h1, h2, h3, h4{
     margin-bottom: 0.25em;
     margin-top: 0.25em;

@@ -1,4 +1,4 @@
-const blocksToHtml = require('@sanity/block-content-to-html')
+const pt = require('@portabletext/to-html')
 const sanityClient = require('./src/utils/sanityClient.js')
 const imageUrl = require('@sanity/image-url')
 const imageBuilder = imageUrl(sanityClient);
@@ -33,16 +33,24 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter('richText', (data) => {
-    let html = blocksToHtml({
-      blocks: data
+    return pt.toHTML(data, {
+      components: {
+        marks: {
+          link: ({children, value}) => {
+            const href = value.href || '';
+            if (pt.uriLooksSafe(href)) {
+              const rel = href.startsWith('/') ? undefined : 'noreferrer noopener'
+              if(value.blank){
+                return `<a href="${href}" target="_blank" rel="noopener noreferrer">${children}</a>`
+              }else{
+                return `<a href="${href}" rel="${rel}">${children}</a>`
+              }
+            }
+          }
+        }
+      }
     })
-    // remove wrapper div
-    if (html.startsWith('<div>')) {
-      return html.slice(5).slice(0, -6);
-    } else {
-      return html;
-    }
-  })
+  });
 
   eleventyConfig.addFilter("formatDate", (dateObj, format = "LLL dd yyyy") => {
     return DateTime.fromHTTP(dateObj, {zone: 'utc'}).toFormat(format);

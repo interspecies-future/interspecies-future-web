@@ -7,20 +7,15 @@
   height: 0;
 }
 .homepage-text{
+  --bg-color: var(--grey);
+  --text-color: var(--yellow);
   width: 100%;
-  background: var(--yellow);
+  background: var(--bg-color);
   @include break(md){
     width: 50%;
     margin-left: 50%;
   }
   padding: 2rem 2rem;
-}
-
-.lenticular-mask{
-  display: hidden;
-  height: 0;
-  margin: 0;
-  padding: 0;
 }
 
 .homepage-poster{
