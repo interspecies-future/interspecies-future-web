@@ -1,7 +1,21 @@
+## Init
+
+`npm install`
+
 ## Dev
-`npm run web`
-`npm run studio`
+
+Site: `npm run web`
+
+Studio: `npm run studio`
 
 ## Build
-`npm run build --workspace=web`
-`npm run build --workspace=studio`
+
+Site: `npm run build --workspace=web`
+
+Studio: `npm run build --workspace=studio`
+
+## Deploy
+
+Site: Commits on master branch deploy site on Netlify
+
+Studio: `cd studio && sanity deploy` deploys updates to https://interspecies.sanity.studio/desk
