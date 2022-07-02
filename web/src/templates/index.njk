@@ -22,17 +22,16 @@ layout: base
 
   <div class="homepage-text">
     <div class="text-area sans-lg justify">
-    {%- if homepage.intro %}
-      {{ homepage.intro | richText | safe }}
-    {% endif -%}
+      {%- if homepage.intro %}
+        {{ homepage.intro | richText | safe }}
+      {% endif -%}
 
-    <div class="footer-logo">
-    {% image "./src/images/mfn.png", "Museum Für Naturkunde Logo", "150px" %}
-    </div>
-    <div class="footer-logo">
-    {% image "./src/images/las.png", "Light Art Space Logo", "150px" %}
-    </div>
-
+      <div class="footer-logo">
+        {% image "./src/images/las_yellow.png", "Light Art Space Logo", "150px" %}
+      </div>
+      <div class="footer-logo">
+        {% image "./src/images/mfn_yellow.png", "Museum Für Naturkunde Logo", "150px" %}
+      </div>
     </div>
   </div>
 
