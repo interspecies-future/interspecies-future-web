@@ -5,9 +5,8 @@ export default {
   of: [{
     type: 'block',
     title: 'Block',
-    styles: [
-      {title: 'Normal', value: 'normal'},
-    ],
+    lists: [],
+    styles: [],
     marks: {
       decorators: [
         {title: 'Strong', value: 'strong'},

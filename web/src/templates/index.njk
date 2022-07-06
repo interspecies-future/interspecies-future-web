@@ -9,13 +9,26 @@ layout: base
       {% include "isf_wordmark.svg" %}
     </div>
 
-    <div class="homepage-poster__lenticular clipped-element">
-      <div class="homepage-poster__img">
-        {% image "https://upload.wikimedia.org/wikipedia/commons/3/35/ParthenosSylviaButterfly.jpg", "Parthenos Sylvia Butterfly" %}
-      </div>
-      <div class="homepage-poster__img">
-        {% image "https://upload.wikimedia.org/wikipedia/commons/d/de/Bullfinch_male.jpg", "Bullfinch" %}
-      </div>
+
+    <div class="lenticular">
+      {% for slide in homepage.speciesSlides -%}
+
+        <div class="lenticular__slide lenticular__slide--{{loop.index}}">
+        <style type="text/css">
+          .lenticular__slide--{{loop.index}} img{ clip-path: url(#mask-{{loop.index}}); }
+        </style>
+        {% image slide.image.url, slide.image.alt, "(min-width: 750px) 50vw, 100vw", "" %}
+        <svg class="lenticular-mask" width="0" height="0">
+          <defs>
+            <clipPath id="mask-{{loop.index}}" clipPathUnits="objectBoundingBox">
+              {%- for i in range(0, 100) -%}
+                <rect class="bar" width="1" height="0.01" y="{{ i * 0.01}}" />
+              {%- endfor -%}
+            </clipPath>
+          </defs>
+        </svg>
+        </div>
+      {% endfor %}
     </div>
 
   </div>
@@ -25,7 +38,6 @@ layout: base
       {%- if homepage.intro %}
         {{ homepage.intro | richText | safe }}
       {% endif -%}
-
       <div class="footer-logo">
         {% image "./src/images/las_yellow.png", "Light Art Space Logo", "150px" %}
       </div>
@@ -35,16 +47,4 @@ layout: base
     </div>
   </div>
 
-</div>
-
-<div class="hide-svg">
-<svg class="lenticular-mask" width="0" height="0">
-  <defs>
-    <clipPath id="myClip" clipPathUnits="objectBoundingBox">
-      {% for i in range(0, 125) %}
-        <rect class="bar" width="1" height="0.008" y="{{ i * 0.008}}" />
-      {% endfor %}
-    </clipPath>
-  </defs>
-</svg>
 </div>

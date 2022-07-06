@@ -3,9 +3,6 @@
 @import 'grid.scss';
 @import 'typography.scss';
 
-.hide-svg{
-  height: 0;
-}
 .homepage-text{
   --bg-color: var(--grey);
   --text-color: var(--yellow);
@@ -51,25 +48,38 @@
       }
     }
   }
-  &__lenticular{
-      z-index: 1;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-  }
-  &__img{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      &:first-child{
-      clip-path: url(#myClip);
-      z-index: 5;
-    }
+}
+
+.lenticular{
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  &__slide{
     img{
+      position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0;
+      z-index: 7;
     }
+    &.foreground img{
+      opacity: 1;
+      z-index: 10;
+    }
+    &.background img{
+      opacity: 1;
+      z-index: 9;
+    }
+    &.ondeck img{
+      opacity: 1;
+      z-index: 8;
+    }
+  }
+  svg{
+    position: absolute;
   }
 }
 

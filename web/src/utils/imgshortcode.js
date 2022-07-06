@@ -5,7 +5,7 @@ module.exports = async (
   src,
   alt,
   sizes = "(min-width: 30em) 50vw, 100vw",
-  // className,
+  className,
   // aspectRatio,
 ) => {
    let metadata = await Image(src, {
@@ -16,6 +16,7 @@ module.exports = async (
   });
 
   let imageAttributes = {
+    class: className,
     alt,
     sizes,
     loading: "lazy",

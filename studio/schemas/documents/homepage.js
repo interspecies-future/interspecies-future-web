@@ -14,5 +14,11 @@ export default {
       title: 'Intro',
       type: 'basicText',
     },
+    {
+      name: 'speciesSlides',
+      title: 'Species Slides',
+      type: 'array',
+      of: [{type: "speciesImage"}]
+    }
   ]
 }

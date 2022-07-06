@@ -4,7 +4,15 @@ const groq = require('groq')
 const request = groq`
 *[_type == 'homepage']{
     title,
-    intro
+    intro,
+    speciesSlides[]{
+      title,
+      credit,
+      image{
+        ...asset->,
+        alt
+      }
+    }
 }[0]`
 
 module.exports = async function() {

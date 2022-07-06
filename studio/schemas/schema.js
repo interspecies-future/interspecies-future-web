@@ -11,6 +11,7 @@ import siteSettings from './documents/siteSettings'
 // objects
 import basicText from './objects/basicText'
 import seo from './objects/seo'
+import speciesImage from './objects/speciesImage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,5 +27,6 @@ export default createSchema({
     // objects
     basicText,
     seo,
+    speciesImage,
   ]),
 })
