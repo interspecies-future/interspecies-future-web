@@ -80,13 +80,12 @@ a{
 
 .sans-md{
   font-size: 1rem;
-  line-height: 2.25rem;
+  line-height: 1.25rem;
   @include break(md){
-    line-height: 2rem;
   }
 }
 .sans-lg{
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: -0.0125em;
   line-height: 2.25rem;
 }

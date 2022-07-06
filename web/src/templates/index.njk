@@ -9,7 +9,6 @@ layout: base
       {% include "isf_wordmark.svg" %}
     </div>
 
-
     <div class="lenticular">
       {% for slide in homepage.speciesSlides -%}
 
@@ -33,18 +32,46 @@ layout: base
 
   </div>
 
-  <div class="homepage-text">
-    <div class="text-area sans-lg justify">
+  <div class="homepage-content">
+
+    <div class="homepage-text text-area sans-lg justify">
       {%- if homepage.intro %}
         {{ homepage.intro | richText | safe }}
       {% endif -%}
-      <div class="footer-logo">
-        {% image "./src/images/las_yellow.png", "Light Art Space Logo", "150px" %}
+    </div>
+
+    <div class="homepage-footer">
+
+      <div class="subscribe-form text-area sans-md">
+        <h2 class="upper">Subscribe</h2>
+        <form class="text-area sans-md" name="signup" method="POST" action="/success" aria-label="Sign Up" data-netlify="true">
+          <label for="email">Email</label>
+          <input class="signup-form__email" type="email" placeholder="Email" name="email" required/>
+          <button class="signup-form__button" type="submit">Submit</button>
+        </form>
       </div>
-      <div class="footer-logo">
+
+      {% for section in homepage.footer -%}
+        <div class="homepage-footer__section text-area sans-md">
+          <h2 class="homepage-footer__section-title upper">
+            {{ section.title | safe }}
+          </h2>
+          {{ section.text | richText | safe }}
+        </div>
+      {% endfor %}
+
+      <div class="homepage-footer__logos">
+        {% image "./src/images/las_yellow.png", "Light Art Space Logo", "150px" %}
         {% image "./src/images/mfn_yellow.png", "Museum Für Naturkunde Logo", "150px" %}
       </div>
+
+      {%- if homepage.copyright %}
+      <div class="homepage-footer__copyright text-area sans-md">
+        {{ homepage.copyright | safe }}
+      </div>
+      {% endif %}
     </div>
+
   </div>
 
 </div>

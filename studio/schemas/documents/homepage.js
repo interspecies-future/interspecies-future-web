@@ -19,6 +19,33 @@ export default {
       title: 'Species Slides',
       type: 'array',
       of: [{type: "speciesImage"}]
-    }
+    },
+    {
+      name: 'footer',
+      title: 'Footer',
+      type: 'array',
+      of: [{
+        title: 'Section',
+        name: 'section',
+        type: 'object',
+        fields: [
+          {
+            name: 'title',
+            title: 'Section Title',
+            type: 'string',
+          },
+          {
+            name: 'text',
+            title: 'Text',
+            type: 'basicText',
+          }
+        ]
+      }]
+    },
+    {
+      name: 'copyright',
+      title: 'Copyright',
+      type: 'string',
+    },
   ]
 }

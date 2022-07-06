@@ -3,10 +3,6 @@ export default{
   name: 'speciesImage',
   type: 'object',
   fields: [
-    //
-    // === Meta ===
-    //
-
     {
       name: 'title',
       title: 'Title',
@@ -22,12 +18,7 @@ export default{
           type: 'string',
           title: 'Alt Text'
         }
-      ],
-    },
-    {
-      name: 'credit',
-      title: 'Credit',
-      type: 'basicText'
+      ]
     }
   ]
 }

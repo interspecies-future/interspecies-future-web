@@ -1,0 +1,150 @@
+.homepage-content{
+  --bg-color: var(--grey);
+  --text-color: var(--yellow);
+  width: 100%;
+  background: var(--bg-color);
+  @include break(md){
+    width: 50%;
+    margin-left: 50%;
+  }
+  padding: 2rem 2rem;
+}
+
+.homepage-poster{
+  position: relative;
+  width: 100%;
+  height: 120vw;
+  background-color: var(--grey);
+  @include break(md){
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: auto;
+  }
+  &__wordmark{
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    svg{
+      width: 100%;
+      padding: 2rem;
+      height: auto;
+      line{
+        stroke: var(--yellow);
+        transition: stroke-width 0.2s ease;
+      }
+      &:hover{
+        cursor: pointer;
+        line{
+          stroke-width: 30px;
+        }
+      }
+    }
+  }
+}
+
+.lenticular{
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  &__slide{
+    img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      z-index: 7;
+    }
+    &.foreground img{
+      opacity: 1;
+      z-index: 10;
+    }
+    &.background img{
+      opacity: 1;
+      z-index: 9;
+    }
+    &.ondeck img{
+      opacity: 1;
+      z-index: 8;
+    }
+  }
+  svg{
+    position: absolute;
+  }
+}
+
+.homepage-text{
+  margin-bottom: 4rem;
+}
+
+.homepage-footer{
+  &__section{
+    margin-bottom: 4rem;
+  }
+  &__section-title{
+  }
+  &__logos{
+    margin-bottom: 4rem;
+    img{
+      display: inline-block;
+      vertical-align: top;
+      width: 150px;
+      height: auto;
+      margin-right: 1rem;
+    }
+  }
+  &__copyright{
+
+  }
+}
+
+.subscribe-form{
+  margin-bottom: 4rem;
+  h2{
+    margin-bottom: 0.5em;
+  }
+  form{
+    --text-color: var(--grey);
+    --bg-color: var(--yellow);
+    color: var(--text-color);
+    width: 100%;
+    position: relative;
+  }
+  input, button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 30rem;
+    &::placeholder{
+      opacity: 1;
+      color: var(--text-color)
+    }
+  }
+  input{
+    padding: 1rem 1.5rem;
+    width: 100%;
+    background: var(--bg-color);
+  }
+  button{
+    color: var(--text-color);
+    background-color: transparent;
+    padding: 1rem 2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  label{
+    display: none;
+  }
+}

@@ -12,7 +12,11 @@ const request = groq`
         ...asset->,
         alt
       }
-    }
+    },
+    footer[]{
+      ...
+    },
+    copyright
 }[0]`
 
 module.exports = async function() {

@@ -21,7 +21,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({'src/favicon': '/'});
   eleventyConfig.addPassthroughCopy({'src/fonts': 'assets/fonts'});
 
-
   eleventyConfig.addFilter( 'debug', (value) => {
     return `<pre style="padding: 1em; outline: 1px solid black; font: 12px monospace;">
       ${JSON.stringify(
