@@ -23,6 +23,19 @@
     width: 50%;
     height: auto;
   }
+  &--full{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    @include break(md){
+      height: 100vh;
+      width: 100vw;
+    }
+  }
   &__wordmark{
     width: 100%;
     z-index: 2;

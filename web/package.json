@@ -10,6 +10,7 @@
     "build:parcel": "parcel build src/scripts/index.js src/styles/index.scss --no-cache --no-source-maps",
     "build:11ty": "npx eleventy",
     "clean": "rm -rf dist",
+     "capture": "node src/utils/capture.js",
     "debug": "DEBUG=* npx eleventy"
   },
   "author": "Max Ackerman",
@@ -26,6 +27,10 @@
     "parcel": "^2.6.2"
   },
   "dependencies": {
-    "gsap": "^3.10.4"
+    "gsap": "^3.10.4",
+    "timesnap": "^0.3.3"
+  },
+  "overrides": {
+    "puppeteer": "19.8.0"
   }
 }

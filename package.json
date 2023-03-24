@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "web": "npm run dev --workspace=web",
-    "studio":  "npm run start --workspace=studio"
+    "studio": "npm run start --workspace=studio"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,5 @@
   "workspaces": [
     "studio",
     "web"
-  ],
-  "devDependencies": {
-  }
+  ]
 }
