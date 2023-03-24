@@ -1,0 +1,29 @@
+---
+layout: base
+---
+<div class="grid-wrapper">
+
+  <div class="homepage-poster homepage-poster--full">
+    <div class="lenticular">
+      {% for slide in homepage.speciesSlides -%}
+
+        <div class="lenticular__slide lenticular__slide--{{loop.index}}">
+        <style type="text/css">
+          .lenticular__slide--{{loop.index}} img{ clip-path: url(#mask-{{loop.index}}); }
+        </style>
+        {% image slide.image.url, slide.image.alt, "(min-width: 750px) 50vw, 100vw", "" %}
+        <svg class="lenticular-mask" width="0" height="0">
+          <defs>
+            <clipPath id="mask-{{loop.index}}" clipPathUnits="objectBoundingBox">
+              {%- for i in range(0, 100) -%}
+                <rect class="bar" width="1" height="0.01" y="{{ i * 0.01}}" />
+              {%- endfor -%}
+            </clipPath>
+          </defs>
+        </svg>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
